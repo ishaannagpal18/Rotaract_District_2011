@@ -1,0 +1,91 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Login Account
+{% endblock %}
+{% block style %}
+
+<link href="{% static 'css/register_individual.css'%}" rel="stylesheet">
+<style media="screen">
+  .alert{
+    margin-bottom: 0px;
+text-align: center;
+font-size: 1rem;
+  }
+  .global-container{
+      background: url("https://www.color-meanings.com/wp-content/uploads/2022/02/Pink_explosion_on_black_background.jpeg") top center;
+    }
+</style>
+{% endblock %}
+
+    {% block content %}
+
+    {% if user.is_authenticated %}
+    <div class="global-container" style="background-size:cover">
+        <div style="width: 100%;
+        text-align: center;" class="card login-form">
+        <div class="card-body">
+            <h3  class="card-title text-center">You are already logged in.</h3>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+
+        {% endif %}
+            <div class="card-text">
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+
+            </div>
+        </div>
+    </div>
+    </div>
+    {% else %}
+    <div class="global-container" style="background-size:cover">
+        <center>
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 style="padding-bottom: 5%;" class="card-title text-center">Login Account </h3>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+
+        {% endif %}
+            <div class="card-text">
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                <form method="post" >
+                    {% csrf_token %}
+                    <!-- to error: add class "has-danger" -->
+                    <div style="padding-bottom: 2%;" class="form-group">
+                        <label style="padding-right: 2%;" class="login-label" for="exampleInputEmail1">Username <i class="fa fa-user"></i></label>
+                        <input type="text" name="username" class="form-control form-control-sm login-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label style="padding-right: 2%;" class="login-label" for="exampleInputPassword1">Password <i class="fa fa-lock"></i></label>
+
+                        <input type="password" name="password" class="form-control form-control-sm login-input" id="exampleInputPassword1">
+                    </div>
+                    <button style="color: #fff;" type="submit" class="btn btn-primary btn-block btn-login">Sign in</button>
+
+                    <div class="sign-up">
+                      <a href="{% url 'App_Login:register_individual' %}">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    {% endif %}
+
+
+    {% endblock %}

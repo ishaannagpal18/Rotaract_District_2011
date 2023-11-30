@@ -1,0 +1,102 @@
+html,body {
+    height: 100%;
+    }
+    
+    .card-title {
+    }
+    
+    .global-container{
+      background-size: cover;
+      background: url("https://img.freepik.com/premium-photo/abstract-pink-smoke-swirl-black-background_23-2148092653.jpg") top center;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .global-container1{
+      height:120vh;
+    }
+    
+    form{
+    font-size: 14px;
+    margin-top: 5%;
+    }
+    
+    .card-title{ font-weight:700; font-size:250%; color: white;}
+    
+    .btn{
+    font-size: 14px;
+    margin-top:20px;
+    }
+    
+    
+    .login-form {
+    width: 350px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 10%;
+    padding: 1%;
+    }
+    .register-form{
+      width:60%;
+      margin:20px;
+      background: rgba(0, 0, 0, 0.2);
+      position:absolute;
+      right:5px;
+      top: 125px;
+    }
+    
+    .sign-up{
+    text-align:center;
+    padding:20px 0 0;
+    font-weight:600;
+    color: white;
+    font-size: 120%;
+    }
+    
+    .alert{
+    margin-bottom:-30px;
+    font-size: 13px;
+    margin-top:20px;
+    z-index: 10000;
+    }
+    .btn-login{
+      background-color: #D91B5C;
+      border: #D91B5C;
+    }
+    .btn-login:hover{
+      background-color: #FF74B1;;
+      border: #FF74B1;
+    }
+    a{
+      color:#D91B5C;
+    }
+    a:hover{
+      color: #FF74B1;
+    }
+    .login-label{
+      font-weight: 600;
+      color:white;
+      margin-bottom: 1%;
+    }
+    .login-input{
+      font-size: 110%;
+    }
+    .card-text1{
+      color:white;
+      font-weight:600;
+       font-size:120%;
+    }
+    .form-group {
+    margin-bottom: 1rem;
+    }
+    .btn-block {
+    display: block;
+    width: 100%;
+    }
+    @media screen and (max-width:550px){
+      .register-form{
+        width:90%;
+      }
+    }
+    

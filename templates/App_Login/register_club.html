@@ -1,0 +1,647 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Register Account
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/register_individual.css'%}" rel="stylesheet">
+
+{% endblock %}
+
+    {% block content %}
+
+
+    <div class="global-container global-container1 padding" style="background-size:cover">
+        <div class="card register-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Club Registration</h3>
+            <div class="card-text">
+                {% if messages %}
+
+                        {% for message in messages %}
+                        <div class="alert alert-info">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+
+                    {% endif %}
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                <form method="post" name="myForm" enctype="multipart/form-data">
+                    {%  csrf_token %}
+
+
+                    <!-- to error: add class "has-danger" -->
+                    <div class="row">
+                      <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label class="login-label" for="rotaractor_or_interactor_or_rotarian">Are you a Rotaractor/Interactor/Rotarian?</label><span>*</span>
+                            <select id="rotaractor_or_interactor_or_rotarian" name="rotaractor_or_interactor_or_rotarian" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="Rotaractor">Rotaractor</option>
+                              <option value="Interactor">Interactor</option>
+                              <option value="Rotarian">Rotarian</option>
+                            </select>
+                          </div>
+                        <div id="name" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Name</label>
+                            <input type="text" name="name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="contact_no" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="email" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Email Address</label>
+                            <input type="email" name="email_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="rotary_id" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Rotary ID</label>
+                            <input type="text" name="rotary_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="rotary_club_name" class="form-group">
+                            <label class="login-label" for="rotary_club_name">Club Name</label><span>*</span>
+                            <select id="rotary_club_name" name="rotary_club_name" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="DELHI PREMIER">DELHI PREMIER</option>
+                              <option value="CENTRAL YOUTH SHAKTI (FARIDABAD)">CENTRAL YOUTH SHAKTI (FARIDABAD)</option>
+                              <option value="DELHI">DELHI</option>
+                              <option value="DELHI AMIGO">DELHI AMIGO</option>
+                              <option value="DELHI CAMA PLACE">DELHI CAMA PLACE</option>
+                              <option value="DELHI CENTRAL">DELHI CENTRAL</option>
+                              <option value="DELHI CENTRAL NEXT">DELHI CENTRAL NEXT</option>
+                              <option value="DELHI CHANAKAYAPURI">DELHI CHANAKAYAPURI</option>
+                              <option value="DELHI CONNAUGHT PLACE RAISINA HILLS">DELHI CONNAUGHT PLACE RAISINA HILLS</option>
+                              <option value="DELHI COSMO POLITAN GREATER">DELHI COSMO POLITAN GREATER</option>
+                              <option value="DELHI DIVINE">DELHI DIVINE</option>
+                              <option value="DELHI ELITE">DELHI ELITE</option>
+                              <option value="DELHI FEMINA">DELHI FEMINA</option>
+                              <option value="DELHI GARDEN CITY">DELHI GARDEN CITY</option>
+                              <option value="DELHI GOVINDA">DELHI GOVINDA</option>
+                              <option value="Delhi Heights">Delhi Heights</option>
+                              <option value="DELHI HERITAGE">DELHI HERITAGE</option>
+                              <option value="DELHI HUMANITY">DELHI HUMANITY</option>
+                              <option value="DELHI INFINITY">DELHI INFINITY</option>
+                              <option value="DELHI INSPIRE">DELHI INSPIRE</option>
+                              <option value="DELHI JANAK">DELHI JANAK</option>
+                              <option value="DELHI KHUBSURAT">DELHI KHUBSURAT</option>
+                              <option value="DELHI LUTYENS">DELHI LUTYENS</option>
+                              <option value="DELHI MADHYAM">DELHI MADHYAM</option>
+                              <option value="DELHI MANTHAN">DELHI MANTHAN</option>
+                              <option value="DELHI MEGAPOLIS">DELHI MEGAPOLIS</option>
+                              <option value="DELHI MIDTOWN">DELHI MIDTOWN</option>
+                              <option value="DELHI MIDWEST">DELHI MIDWEST</option>
+                              <option value="DELHI MILLENNIUM">DELHI MILLENNIUM</option>
+                              <option value="DELHI OKHLA CITY">DELHI OKHLA CITY</option>
+                              <option value="DELHI PANCHSHILA PARK">DELHI PANCHSHILA PARK</option>
+                              <option value="DELHI QUTAB">DELHI QUTAB</option>
+                              <option value="DELHI RAJDHANI">DELHI RAJDHANI</option>
+                              <option value="DELHI RAJENDRA PLACE">DELHI RAJENDRA PLACE</option>
+                              <option value="DELHI REGALIA">DELHI REGALIA</option>
+                              <option value="DELHI REGENCY">DELHI REGENCY</option>
+                              <option value="DELHI REGENCY NEXT">DELHI REGENCY NEXT</option>
+                              <option value="DELHI RENDEZVOUS">DELHI RENDEZVOUS</option>
+                              <option value="Delhi Resources">Delhi Resources</option>
+                              <option value="DELHI RESTORING SMILES">DELHI RESTORING SMILES</option>
+                              <option value="DELHI RIDGE">DELHI RIDGE</option>
+                              <option value="DELHI SAFDARJUNG">DELHI SAFDARJUNG</option>
+                              <option value="DELHI SAINIK FARM">DELHI SAINIK FARM</option>
+                              <option value="DELHI SHINE">DELHI SHINE</option>
+                              <option value="Delhi Soar High">Delhi Soar High</option>
+                              <option value="DELHI SOUTH">DELHI SOUTH</option>
+                              <option value="DELHI SOUTH CENTRAL">DELHI SOUTH CENTRAL</option>
+                              <option value="DELHI SOUTH CENTRAL NEXT">DELHI SOUTH CENTRAL NEXT</option>
+                              <option value="DELHI SOUTH EAST">DELHI SOUTH EAST</option>
+                              <option value="DELHI SOUTH METROPOLITAN">DELHI SOUTH METROPOLITAN</option>
+                              <option value="DELHI SOUTH WEST">DELHI SOUTH WEST</option>
+                              <option value="DELHI SOUTHEND">DELHI SOUTHEND</option>
+                              <option value="DELHI SOUTHEND NEXT">DELHI SOUTHEND NEXT</option>
+                              <option value="DELHI SOUTHEX">DELHI SOUTHEX</option>
+                              <option value="DELHI STELLAR">DELHI STELLAR</option>
+                              <option value="DELHI VASANT KUNJ">DELHI VASANT KUNJ</option>
+                              <option value="DELHI VASANT VALLEY">DELHI VASANT VALLEY</option>
+                              <option value="DELHI VASANT VIHAR">DELHI VASANT VIHAR</option>
+                              <option value="DELHI WEST">DELHI WEST</option>
+                              <option value="DELHI WEST METRO">DELHI WEST METRO</option>
+                              <option value="DELHI WESTEND">DELHI WESTEND</option>
+                              <option value="DELHI WINNERS">DELHI WINNERS</option>
+                              <option value="DELHI WONTOUCH">DELHI WONTOUCH</option>
+                              <option value="DELHI YOUNG VISIONARIES">DELHI YOUNG VISIONARIES</option>
+                              <option value="DELHIITES">DELHIITES</option>
+                              <option value="E - CLUB OF PROGRESSIVE THINKERS">E - CLUB OF PROGRESSIVE THINKERS</option>
+                              <option value="FARIDABAD">FARIDABAD</option>
+                              <option value="FARIDABAD AASTHA">FARIDABAD AASTHA</option>
+                              <option value="FARIDABAD ARAVALLI">FARIDABAD ARAVALLI</option>
+                              <option value="FARIDABAD ARTH">FARIDABAD ARTH</option>
+                              <option value="FARIDABAD CENTRAL">FARIDABAD CENTRAL</option>
+                              <option value="FARIDABAD CITY">FARIDABAD CITY</option>
+                              <option value="FARIDABAD COSMOPOLITIAN">FARIDABAD COSMOPOLITIAN</option>
+                              <option value="FARIDABAD EAST">FARIDABAD EAST</option>
+                              <option value="FARIDABAD ELITE">FARIDABAD ELITE</option>
+                              <option value="FARIDABAD GRACE">FARIDABAD GRACE</option>
+                              <option value="FARIDABAD GREATER">FARIDABAD GREATER</option>
+                              <option value="FARIDABAD GREATER NEXT">FARIDABAD GREATER NEXT</option>
+                              <option value="FARIDABAD GREEN">FARIDABAD GREEN</option>
+                              <option value="FARIDABAD HAPPINESS">FARIDABAD HAPPINESS</option>
+                              <option value="FARIDABAD HERITAGE">FARIDABAD HERITAGE</option>
+                              <option value="Faridabad Imperial">Faridabad Imperial</option>
+                              <option value="FARIDABAD IMT">FARIDABAD IMT</option>
+                              <option value="FARIDABAD INDUSTRIAL TOWN">FARIDABAD INDUSTRIAL TOWN</option>
+                              <option value="FARIDABAD LIFELINE">FARIDABAD LIFELINE</option>
+                              <option value="FARIDABAD MIDTOWN">FARIDABAD MIDTOWN</option>
+                              <option value="FARIDABAD MIDTOWN NEXT">FARIDABAD MIDTOWN NEXT</option>
+                              <option value="FARIDABAD NIT">FARIDABAD NIT</option>
+                              <option value="FARIDABAD NIT NEXT">FARIDABAD NIT NEXT</option>
+                              <option value="FARIDABAD PROFESSIONALS">FARIDABAD PROFESSIONALS</option>
+                              <option value="Faridabad Royals">Faridabad Royals</option>
+                              <option value="FARIDABAD SANSKAR">FARIDABAD SANSKAR</option>
+                              <option value="FARIDABAD SANSKRITI">FARIDABAD SANSKRITI</option>
+                              <option value="FARIDABAD SMART CITY">FARIDABAD SMART CITY</option>
+                              <option value="FARIDABAD TULIPS">FARIDABAD TULIPS</option>
+                              <option value="GURGAON">GURGAON</option>
+                              <option value="GURGAON CIVIL LINES">GURGAON CIVIL LINES</option>
+                              <option value="GURGAON COSMOPOLITAN">GURGAON COSMOPOLITAN</option>
+                              <option value="GURGAON CYBER CITY">GURGAON CYBER CITY</option>
+                              <option value="Gurgaon Green">Gurgaon Green</option>
+                              <option value="GURGAON PASSION">GURGAON PASSION</option>
+                              <option value="GURGAON PRAVAHINI">GURGAON PRAVAHINI</option>
+                              <option value="GURGAON QUTAB ENCLAVE">GURGAON QUTAB ENCLAVE</option>
+                              <option value="GURGAON SOUTH CITY">GURGAON SOUTH CITY</option>
+                              <option value="GURGAON VENKATESHWAR">GURGAON VENKATESHWAR</option>
+                              <option value="INDRAPRASTHA - OKHLA">INDRAPRASTHA - OKHLA</option>
+                              <option value="MAHENDERGARH">MAHENDERGARH</option>
+                              <option value="NARNAUL BELLAS">NARNAUL BELLAS</option>
+                              <option value="NARNAUL CITY">NARNAUL CITY</option>
+                              <option value="NATIONAL CAPITAL REGION GOLFERS">NATIONAL CAPITAL REGION GOLFERS</option>
+                              <option value="NEW DELHI">NEW DELHI</option>
+                              <option value="NEW GURGAON">NEW GURGAON</option>
+                              <option value="PALWAL CITY">PALWAL CITY</option>
+                              <option value="PALWAL SANSKAR">PALWAL SANSKAR</option>
+                              <option value="REWARI CITY">REWARI CITY</option>
+                              <option value="REWARI MAIN">REWARI MAIN</option>
+                              <option value="REWARI ROYAL">REWARI ROYAL</option>
+                              <option value="ROHTAK">ROHTAK</option>
+                              <option value="ROHTAK CITY">ROHTAK CITY</option>
+                              <option value="ROHTAK PRESTIGE">ROHTAK PRESTIGE</option>
+                              <option value="ROHTAK ROYALS">ROHTAK ROYALS</option>
+                              <option value="ROHTAK SAPPHIRE">ROHTAK SAPPHIRE</option>
+                              <option value="ROHTAK SCHOLARS">ROHTAK SCHOLARS</option>
+                              
+                            </select>
+                          </div>
+                       
+                        <div id="interactor_club_name" class="form-group">
+                            <label class="login-label" for="interactor_club_name">Club Name</label><span>*</span>
+                            <select id="interactor_club_name" name="interactor_club_name" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="Chinmaya Vidyalaya, Vasant Vihar, New Delhi">Chinmaya Vidyalaya, Vasant Vihar, New Delhi</option>
+                              <option value="Aakash Public School">Aakash Public School</option>
+                              <option value="Abhinav Global School">Abhinav Global School</option>
+                              <option value="Adarsh Public School">Adarsh Public School</option>
+                              <option value="Adarsh Public School Bali Nagar">Adarsh Public School Bali Nagar</option>
+                              <option value="Ahlcon International School">Ahlcon International School</option>
+                              <option value="Air Force Bal Bharati School">Air Force Bal Bharati School</option>
+                              <option value="Ajanta Public School">Ajanta Public School</option>
+                              <option value="Amity International School Saket">Amity International School Saket</option>
+                              <option value="Amity International School-Mayur Vihjar">Amity International School-Mayur Vihjar</option>
+                              <option value="Amity International School-Pushp Vihar">Amity International School-Pushp Vihar</option>
+                              <option value="Amity International School-Sector 43">Amity International School-Sector 43</option>
+                              <option value="Amity International School-Sector 46">Amity International School-Sector 46</option>
+                              <option value="Anubhav School">Anubhav School</option>
+                              <option value="Apeejay School, 21-D Faridabad">Apeejay School, 21-D Faridabad</option>
+                              <option value="Apeejay School, Faridabad">Apeejay School, Faridabad</option>
+                              <option value="Apeejay School, Noida">Apeejay School, Noida</option>
+                              <option value="Apeejay School, Panchsheel Park, Sheikh Sarai">Apeejay School, Panchsheel Park, Sheikh Sarai</option>
+                              <option value="Apeejay School, Pitampura">Apeejay School, Pitampura</option>
+                              <option value="Apeejay School, Saket">Apeejay School, Saket</option>
+                              <option value="Apeejay School, Sec-21D, Faridabad">Apeejay School, Sec-21D, Faridabad</option>
+                              <option value="Bal Bharati Public School, Dwarka">Bal Bharati Public School, Dwarka</option>
+                              <option value="Bal Bharti Public School-Rainder Nagar">Bal Bharti Public School-Rainder Nagar</option>
+                              <option value="Balvantray Mehta Vidya Bhawan A.S.M.A.">Balvantray Mehta Vidya Bhawan A.S.M.A.</option>
+                              <option value="Birla Vidya Niketan">Birla Vidya Niketan</option>
+                              <option value="Cambridge School, Srinivaspuri">Cambridge School, Srinivaspuri</option>
+                              <option value="D.A.V. Public School">D.A.V. Public School</option>
+                              <option value="D.A.V. Public School">D.A.V. Public School</option>
+                              <option value="D.A.V. School">D.A.V. School</option>
+                              <option value="DAV Public School, Sec-14 , Faridabad">DAV Public School, Sec-14 , Faridabad</option>
+                              <option value="DAV Public School, Sreshtha Vihar, Delhi">DAV Public School, Sreshtha Vihar, Delhi</option>
+                              <option value="DC Model Sr. Sec. School">DC Model Sr. Sec. School</option>
+                              <option value="Deepalaya School">Deepalaya School</option>
+                              <option value="Delhi Public School Gurgaon">Delhi Public School Gurgaon</option>
+                              <option value="Delhi Public School, Sushant Lok">Delhi Public School, Sushant Lok</option>
+                              <option value="Delhi Public School-Vasant Kunj">Delhi Public School-Vasant Kunj</option>
+                              <option value="Dynasty International School  ">Dynasty International School  </option>
+                              <option value="Faridabad Smart City">Faridabad Smart City</option>
+                              <option value="G.D. Goenka World School">G.D. Goenka World School</option>
+                              <option value="GD Goenka Public School, East Delhi">GD Goenka Public School, East Delhi</option>
+                              <option value="Govt. Model Sanskriti Sr. Sec. School, Sector 43">Govt. Model Sanskriti Sr. Sec. School, Sector 43</option>
+                              <option value="Guru Harkrishan Public School Vasant Vihar">Guru Harkrishan Public School Vasant Vihar</option>
+                              <option value="Guru Harkrishan Public School-Hemkunt Colony">Guru Harkrishan Public School-Hemkunt Colony</option>
+                              <option value="Guru Teg Bahadur 3rd Centenary School">Guru Teg Bahadur 3rd Centenary School</option>
+                              <option value="Gyan Bharti">Gyan Bharti</option>
+                              <option value="Gyan Mandir Public School">Gyan Mandir Public School</option>
+                              <option value="Hans Raj Model School">Hans Raj Model School</option>
+                              <option value="Haryana Senior Secondary School">Haryana Senior Secondary School</option>
+                              <option value="Heritage">Heritage</option>
+                              <option value="Hermann Gmeiner School Sector 29 Faridabad">Hermann Gmeiner School Sector 29 Faridabad</option>
+                              <option value="Indraprastha International School">Indraprastha International School</option>
+                              <option value="Indraprastha World School">Indraprastha World School</option>
+                              <option value="Jigyasa">Jigyasa</option>
+                              <option value="Jiva Public School">Jiva Public School</option>
+                              <option value="Josh Raghav Global School">Josh Raghav Global School</option>
+                              <option value="K.R. Mangalam World School">K.R. Mangalam World School</option>
+                              <option value="K.R. Mangalam World School, Vikas Puri">K.R. Mangalam World School, Vikas Puri</option>
+                              <option value="Kalka Public School">Kalka Public School</option>
+                              <option value="KRM, Gurugram">KRM, Gurugram</option>
+                              <option value="Kulachi Hansraj Model School">Kulachi Hansraj Model School</option>
+                              <option value="M.L Khanna D.A.V Public School">M.L Khanna D.A.V Public School</option>
+                              <option value="Maharaja Agarsain Public School">Maharaja Agarsain Public School</option>
+                              <option value="Manaskriti School">Manaskriti School</option>
+                              <option value="Manav Rachna International School">Manav Rachna International School</option>
+                              <option value="Mata Gujri Public School">Mata Gujri Public School</option>
+                              <option value="Meenakshi Public School">Meenakshi Public School</option>
+                              <option value="Mission Altruism">Mission Altruism</option>
+                              <option value="Model School">Model School</option>
+                              <option value="Modern School Barakhambha Road">Modern School Barakhambha Road</option>
+                              <option value="Modern School Faridabad">Modern School Faridabad</option>
+                              <option value="Modern School Vasant Vihar">Modern School Vasant Vihar</option>
+                              <option value="Modern School, Faridabad">Modern School, Faridabad</option>
+                              <option value="Mother's Global School">Mother's Global School</option>
+                              <option value="N.C. Jindal Public School">N.C. Jindal Public School</option>
+                              <option value="National Association For The Blind">National Association For The Blind</option>
+                              <option value="Navy Children Schools">Navy Children Schools</option>
+                              <option value="NEEV">NEEV</option>
+                              <option value="NGFS, Saket">NGFS, Saket</option>
+                              <option value="Pathania Public School">Pathania Public School</option>
+                              <option value="Queen Mary's School Northend">Queen Mary's School Northend</option>
+                              <option value="R.M. Arya Girls Senior Secondary School">R.M. Arya Girls Senior Secondary School</option>
+                              <option value="Rajasthan Public School, Jakhrana">Rajasthan Public School, Jakhrana</option>
+                              <option value="Ramagya School, Noida">Ramagya School, Noida</option>
+                              <option value="Ramjas Public School (Day Boarding)">Ramjas Public School (Day Boarding)</option>
+                              <option value="Ramjas School, R.K. Puram">Ramjas School, R.K. Puram</option>
+                              <option value="Red Roses Public School Saket">Red Roses Public School Saket</option>
+                              <option value="Rotary Public School">Rotary Public School</option>
+                              <option value="S.D. Public School">S.D. Public School</option>
+                              <option value="Sadhu Vaswani Intl. School">Sadhu Vaswani Intl. School</option>
+                              <option value="Samarpan Green Fields School Safdarjung Enclave">Samarpan Green Fields School Safdarjung Enclave</option>
+                              <option value="Sanskriti School">Sanskriti School</option>
+                              <option value="Saraswati Vidyalaya">Saraswati Vidyalaya</option>
+                              <option value="Satyawati Sood Arya Girls' Senior Secondary School">Satyawati Sood Arya Girls' Senior Secondary School</option>
+                              <option value="Scholars Rosary School">Scholars Rosary School</option>
+                              <option value="Scottish High International School">Scottish High International School</option>
+                              <option value="SD Modern Sr. Sec. School">SD Modern Sr. Sec. School</option>
+                              <option value="Shalom Hills International School">Shalom Hills International School</option>
+                              <option value="Sherwood Convent School">Sherwood Convent School</option>
+                              <option value="Shikshyaly Delhiites">Shikshyaly Delhiites</option>
+                              <option value="Soami Nagar Model School">Soami Nagar Model School</option>
+                              <option value="Springdales - Dhaula Kuan">Springdales - Dhaula Kuan</option>
+                              <option value="Springdales School, Pusa Road">Springdales School, Pusa Road</option>
+                              <option value="Sshakt - Shiv Nadar School, Gurgaon">Sshakt - Shiv Nadar School, Gurgaon</option>
+                              <option value="St. Cecilia's Public School">St. Cecilia's Public School</option>
+                              <option value="St. Paul's School">St. Paul's School</option>
+                              <option value="Suraj Bhan D.A.V. Public School">Suraj Bhan D.A.V. Public School</option>
+                              <option value="Suraj School Sector 75 Gurgaon">Suraj School Sector 75 Gurgaon</option>
+                              <option value="Tagore International School Vasant Vihar">Tagore International School Vasant Vihar</option>
+                              <option value="The Agrani">The Agrani</option>
+                              <option value="The Dynamic Drillers">The Dynamic Drillers</option>
+                              <option value="The Healing Touch DAV Veda Vyasa">The Healing Touch DAV Veda Vyasa</option>
+                              <option value="The Maurya School">The Maurya School</option>
+                              <option value="The Modern School">The Modern School</option>
+                              <option value="Trail Blazers">Trail Blazers</option>
+                              <option value="Vidya Bharti Public School">Vidya Bharti Public School</option>
+                              <option value="Vivek Model School Gurgaon">Vivek Model School Gurgaon</option>
+                              <option value="Vivek Model School Maruti Kunj Gurgaon">Vivek Model School Maruti Kunj Gurgaon</option>
+                              <option value="Vivekanand Global School">Vivekanand Global School</option>
+                              <option value="Wisdom Valley">Wisdom Valley</option>
+                              <option value="Xion International Convent School">Xion International Convent School</option>
+                              <option value="ZAD Global">ZAD Global</option>
+                              
+                            </select>
+                          </div>
+                        
+                        <div id="rotaractor_club_name" class="form-group">
+                            <label class="login-label" for="rotaractor_club_name">Club Name</label><span></span>
+                            <select id="rotaractor_club_name" name="rotaractor_club_name" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="Rotaract Club of Aarohan">Rotaract Club of Aarohan</option>
+                              <option value="Rotaract Club of Apeejay Stya University Gurugram">Rotaract Club of Apeejay Stya University Gurugram</option>
+                              <option value="Rotaract Club of Ardent Youth">Rotaract Club of Ardent Youth</option>
+                              <option value="Rotaract Club Of College Of Vocational Studies">Rotaract Club Of College Of Vocational Studies</option>
+                              <option value="Rotaract Club of D-Town">Rotaract Club of D-Town</option>
+                              <option value="Rotaract Club of DAVIM">Rotaract Club of DAVIM</option>
+                              <option value="Rotaract Club of Delhi">Rotaract Club of Delhi</option>
+                              <option value="Rotaract Club of Delhi Akash">Rotaract Club of Delhi Akash</option>
+                              <option value="Rotaract Club of Delhi Central">Rotaract Club of Delhi Central</option>
+                              <option value="Rotaract Club of Delhi Ehsaas ">Rotaract Club of Delhi Ehsaas </option>
+                              <option value="Rotaract Club of Delhi Elite">Rotaract Club of Delhi Elite</option>
+                              <option value="Rotaract Club of Delhi Falcons">Rotaract Club of Delhi Falcons</option>
+                              <option value="Rotaract Club of Delhi Femina">Rotaract Club of Delhi Femina</option>
+                              <option value="Rotaract Club of Delhi Janak">Rotaract Club of Delhi Janak</option>
+                              <option value="Rotaract Club of Delhi Pankh">Rotaract Club of Delhi Pankh</option>
+                              <option value="Rotaract Club of Delhi Philanthropists">Rotaract Club of Delhi Philanthropists</option>
+                              <option value="Rotaract Club of Delhi Prudent">Rotaract Club of Delhi Prudent</option>
+                              <option value="Rotaract Club of Delhi Rajdhani">Rotaract Club of Delhi Rajdhani</option>
+                              <option value="Rotaract Club of Delhi Samaritans">Rotaract Club of Delhi Samaritans</option>
+                              <option value="Rotaract Club of Delhi South">Rotaract Club of Delhi South</option>
+                              <option value="Rotaract Club of Delhi South Central">Rotaract Club of Delhi South Central</option>
+                              <option value="Rotaract Club of Delhi Southeners">Rotaract Club of Delhi Southeners</option>
+                              <option value="Rotaract Club of Delhi University South Campus">Rotaract Club of Delhi University South Campus</option>
+                              <option value="Rotaract Club of Delhi Vedanta">Rotaract Club of Delhi Vedanta</option>
+                              <option value="Rotaract Club of Delhi Yuva">Rotaract Club of Delhi Yuva</option>
+                              <option value="Rotaract Club of DPSRU">Rotaract Club of DPSRU</option>
+                              <option value="Rotaract Club of DTU Regency">Rotaract Club of DTU Regency</option>
+                              <option value="Rotaract Club of Dwarka">Rotaract Club of Dwarka</option>
+                              <option value="Rotaract Club of Ehsaas">Rotaract Club of Ehsaas</option>
+                              <option value="Rotaract Club of Faridabad Aastha ">Rotaract Club of Faridabad Aastha </option>
+                              <option value="Rotaract Club of Faridabad Aravalli">Rotaract Club of Faridabad Aravalli</option>
+                              <option value="Rotaract Club of Faridabad Greater">Rotaract Club of Faridabad Greater</option>
+                              <option value="Rotaract Club of Faridabad Greater Next">Rotaract Club of Faridabad Greater Next</option>
+                              <option value="Rotaract Club of Faridabad N.I.T.">Rotaract Club of Faridabad N.I.T.</option>
+                              <option value="Rotaract Club of Faridabad Sanskar">Rotaract Club of Faridabad Sanskar</option>
+                              <option value="Rotaract Club of Galgotias Educational Institutions">Rotaract Club of Galgotias Educational Institutions</option>
+                              <option value="Rotaract Club of Geetanjali Delhi">Rotaract Club of Geetanjali Delhi</option>
+                              <option value="Rotaract Club of Gurgaon Harmony Iberis">Rotaract Club of Gurgaon Harmony Iberis</option>
+                              <option value="Rotaract Club of Gurgaon Qutab Enclave">Rotaract Club of Gurgaon Qutab Enclave</option>
+                              <option value="Rotaract Club of Guru Tegh Bahadur Institute of Technology">Rotaract Club of Guru Tegh Bahadur Institute of Technology</option>
+                              <option value="Rotaract Club of Gurugram Mid West">Rotaract Club of Gurugram Mid West</option>
+                              <option value="Rotaract club of IGDTUW">Rotaract club of IGDTUW</option>
+                              <option value="Rotaract Club of Ignited Youth">Rotaract Club of Ignited Youth</option>
+                              <option value="Rotaract Club of Ikshana">Rotaract Club of Ikshana</option>
+                              <option value="Rotaract Club of Ingenious Beings">Rotaract Club of Ingenious Beings</option>
+                              <option value="Rotaract Club of Ingenious Minds">Rotaract Club of Ingenious Minds</option>
+                              <option value="Rotaract Club of Jamia Hamdard">Rotaract Club of Jamia Hamdard</option>
+                              <option value="Rotaract Club of JIMS Vasant Kunj 2">Rotaract Club of JIMS Vasant Kunj 2</option>
+                              <option value="Rotaract Club of Keshav Mahavidyalaya">Rotaract Club of Keshav Mahavidyalaya</option>
+                              <option value="Rotaract Club of Maharaja Agarsain">Rotaract Club of Maharaja Agarsain</option>
+                              <option value="Rotaract Club of MAIMS">Rotaract Club of MAIMS</option>
+                              <option value="Rotaract Club of Meraki">Rotaract Club of Meraki</option>
+                              <option value="Rotaract Club of NDIM">Rotaract Club of NDIM</option>
+                              <option value="Rotaract Club of New Delhi">Rotaract Club of New Delhi</option>
+                              <option value="Rotaract Club of New Delhi Next">Rotaract Club of New Delhi Next</option>
+                              <option value="Rotaract Club of North Cap University">Rotaract Club of North Cap University</option>
+                              <option value="Rotaract Club of NSIT Regency">Rotaract Club of NSIT Regency</option>
+                              <option value="Rotaract Club of Omega">Rotaract Club of Omega</option>
+                              <option value="Rotaract Club of Querencia">Rotaract Club of Querencia</option>
+                              <option value="Rotaract Club of Ramanujan College">Rotaract Club of Ramanujan College</option>
+                              <option value="Rotaract Club of Refines Midwest">Rotaract Club of Refines Midwest</option>
+                              <option value="Rotaract Club of Resilience">Rotaract Club of Resilience</option>
+                              <option value="Rotaract Club of Rever">Rotaract Club of Rever</option>
+                              <option value="Rotaract Club of Rewari City">Rotaract Club of Rewari City</option>
+                              <option value="Rotaract Club of Rising Voices">Rotaract Club of Rising Voices</option>
+                              <option value="Rotaract Club of Saksham">Rotaract Club of Saksham</option>
+                              <option value="Rotaract Club of Serenity">Rotaract Club of Serenity</option>
+                              <option value="Rotaract Club of Shaheed Bhagat Singh College">Rotaract Club of Shaheed Bhagat Singh College</option>
+                              <option value="Rotaract Club of South Campus Midwest">Rotaract Club of South Campus Midwest</option>
+                              <option value="Rotaract Club of Sri Aurobindo College">Rotaract Club of Sri Aurobindo College</option>
+                              <option value="Rotaract Club of Sri Guru Gobind Singh College of Commerce">Rotaract Club of Sri Guru Gobind Singh College of Commerce</option>
+                              <option value="Rotaract Club of Sushant University">Rotaract Club of Sushant University</option>
+                              <option value="Rotaract Club of Unified Spirits">Rotaract Club of Unified Spirits</option>
+                              <option value="Rotaract Club of Virasat">Rotaract Club of Virasat</option>
+                              <option value="Rotaract Club of Visioners League">Rotaract Club of Visioners League</option>
+                              <option value="Rotaract Club of Young India">Rotaract Club of Young India</option>
+                              <option value="Rotaract Club of Young Souvenirs">Rotaract Club of Young Souvenirs</option>
+                              <option value="Rotaract Club of Young Visionaries">Rotaract Club of Young Visionaries</option>
+                              <option value="Rotaract E- Club of Revolutionaries">Rotaract E- Club of Revolutionaries</option>
+
+                              
+                            </select>
+                          </div>
+                        
+                        <div id="club_rotary_id" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Club Rotary ID</label>
+                            <input type="text" name="club_rotary_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="club_email_id" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Club Email ID</label>
+                            <input type="email" name="club_email_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="parent_club_name" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Parent Club Name</label>
+                            <input type="text" name="parent_club_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="presidents_name" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">President Name</label>
+                            <input type="text" name="presidents_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="presidents_contact_no" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">President Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="presidents_contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="secretary_name" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Secretary Name</label>
+                            <input type="text" name="secretary_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="secretary_contact_no" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Secretary Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="secretary_contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="gender" class="form-group">
+                            <label class="login-label" for="gender">Gender</label><span>*</span>
+                            <select id="gender" name="gender" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+                          </div>
+                          <div id="blood_group" class="form-group">
+                              <label class="login-label" for="exampleInputEmail1">Blood Group</label>
+                              <input type="text" name="blood_group" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                          </div>
+
+                      </div>
+                      <div class="col-md-6 col-6">
+                        <!-- <div id="username" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Username</label>
+                            <input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+
+                        <div id="password" class="form-group">
+                            <label class="login-label" for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required>
+                        </div> -->
+                        
+                        <div id="address" class="form-group">
+                            <label class="login-label" for="exampleInputPassword1">Address</label>
+                            <textarea type="text" name="address" class="form-control form-control-sm" id="exampleInputPassword1" ></textarea>
+                        </div>
+                        <div id="emergency_contact_name" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Emergency Contact Name (Relation)</label>
+                            <input type="text" name="emergency_contact_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="emergency_contact_no" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Emergency Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="emergency_contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="jacket_size" class="form-group">
+                            <label class="login-label" for="jacket_size">Jacket Size</label><span>*</span>
+                            <select id="jacket_size" name="jacket_size" class="form-control" >
+                                <option value="">Choose any one...</option>
+                              <option value="S">S</option>
+                              <option value="M">M</option>
+                              <option value="L">L</option>
+                              <option value="XL">XL</option>
+                              <option value="XXL">XXL</option>
+                              
+                            </select>
+                          </div>
+                        
+                        <div id="no_of_participants" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Number Of Participants</label>
+                            <input type="text" name="no_of_participants" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+                        <div id="payment_screenshot" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Screenshot Of Payment</label>
+                            <input type="file" name="payment_screenshot" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                        </div>
+
+
+                          
+                      </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary btn-block mt-2 btn-login" >Register</button>
+
+                    <!-- <div class="sign-up mt-2">
+                        Already have an account? <a href="{% url 'App_Login:login_attempt'%}">Login</a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}
+    {% block js %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+
+    <script type="text/javascript">
+        $("#club_rotary_id").hide();
+        $("#parent_club_name").hide();
+        $("#presidents_name").hide();
+        $("#presidents_contact_no").hide();
+        $("#secretary_name").hide();
+        $("#secretary_contact_no").hide();
+        $("#club_email_id").hide();
+        $("#interactor_club_name").hide();
+        $("#rotaractor_club_name").hide();
+        $("#name").show();
+        $("#contact_no").show();
+        $("#email").show();
+        $("#rotary_id").show();
+        $("#club_name").show();
+        $("#gender").show();
+        $("#blood_group").show();
+        $("#address").show();
+        $("#emergency_contact_name").show();
+        $("#emergency_contact_no").show();
+        $("#jacket_size").show();
+        $("#payment_screenshot").show();
+      
+
+
+$('#rotaractor_or_interactor_or_rotarian').on('change',function(){
+     var selection = $(this).val();
+    switch(selection){
+    case "Rotarian":
+        $("#club_rotary_id").hide();
+        $("#parent_club_name").hide();
+        $("#presidents_name").hide();
+        $("#presidents_contact_no").hide();
+        $("#secretary_name").hide();
+        $("#secretary_contact_no").hide();
+        $("#club_email_id").hide();
+        $("#interactor_club_name").hide();
+        $("#rotaractor_club_name").hide();
+        $("#name").show();
+        $("#contact_no").show();
+        $("#email").show();
+        $("#rotary_id").show();
+        $("#club_name").show();
+        $("#gender").show();
+        $("#blood_group").show();
+        $("#address").show();
+        $("#emergency_contact_name").show();
+        $("#emergency_contact_no").show();
+        $("#jacket_size").show();
+        $("#payment_screenshot").show();
+
+  
+        break;
+    case "Rotaractor":
+        $("#club_rotary_id").show();
+        $("#parent_club_name").show();
+        $("#presidents_name").show();
+        $("#presidents_contact_no").show();
+        $("#secretary_name").show();
+        $("#secretary_contact_no").show();
+        $("#club_email_id").show();
+        $("#interactor_club_name").hide();
+        $("#rotary_club_name").hide();
+        $("#rotaractor_club_name").show();
+        $("#name").hide();
+        $("#contact_no").hide();
+        $("#email").hide();
+        $("#rotary_id").hide();
+        $("#club_name").show();
+        $("#gender").hide();
+        $("#blood_group").hide();
+        $("#address").hide();
+        $("#emergency_contact_name").hide();
+        $("#emergency_contact_no").hide();
+        $("#jacket_size").hide();
+        $("#payment_screenshot").show();
+        break;
+    case "Interactor":
+        $("#club_rotary_id").show();
+        $("#parent_club_name").show();
+        $("#presidents_name").show();
+        $("#presidents_contact_no").show();
+        $("#secretary_name").show();
+        $("#secretary_contact_no").show();
+        $("#club_email_id").show();
+        $("#interactor_club_name").show();
+        $("#rotary_club_name").hide();
+        $("#rotaractor_club_name").hide();
+        $("#name").hide();
+        $("#contact_no").hide();
+        $("#email").hide();
+        $("#rotary_id").hide();
+        $("#club_name").show();
+        $("#gender").hide();
+        $("#blood_group").hide();
+        $("#address").hide();
+        $("#emergency_contact_name").hide();
+        $("#emergency_contact_no").hide();
+        $("#jacket_size").hide();
+        $("#payment_screenshot").show();
+        break;
+    default:
+
+        $("#name").hide();
+        $("#contact_no").hide();
+        $("#email").hide();
+        $("#rotary_id").hide();
+        $("#club_name").show();
+        $("#gender").hide();
+        $("#blood_group").hide();
+        $("#address").hide();
+        $("#emergency_contact_name").hide();
+        $("#emergency_contact_no").hide();
+        $("#jacket_size").hide();
+        $("#payment_screenshot").show();
+    }
+});
+    </script>
+    {% endblock %}
+
+
+
+
+
+    

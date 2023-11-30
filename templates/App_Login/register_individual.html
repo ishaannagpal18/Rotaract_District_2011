@@ -1,0 +1,181 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Register Account
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/register_individual.css'%}" rel="stylesheet">
+
+{% endblock %}
+
+    {% block content %}
+
+
+    <div class="global-container global-container1 padding" style="background-size:cover">
+        <div class="card register-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Register Account</h3>
+            <div class="card-text">
+                {% if messages %}
+
+                        {% for message in messages %}
+                        <div class="alert alert-info">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+
+                    {% endif %}
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                <form method="post" name="myForm">
+                    {%  csrf_token %}
+
+
+                    <!-- to error: add class "has-danger" -->
+                    <div class="row">
+                      <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label class="login-label" for="rotaractor_or_interactor_or_rotarian">Are you a Rotaractor/Interactor/Rotarian?</label><span>*</span>
+                            <select id="rotaractor_or_interactor_or_rotarian" name="rotaractor_or_interactor_or_rotarian" class="form-control" required>
+                              <option value="Rotaractor">Rotaractor</option>
+                              <option value="Interactor">Interactor</option>
+                              <option value="Rotarian">Rotarian</option>
+                            </select>
+                          </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Name</label>
+                            <input type="text" name="name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Email Address</label>
+                            <input type="email" name="email_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Club Name</label>
+                            <input type="text" name="club_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div id="club_rotary_id" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Club Rotary ID</label>
+                            <input type="text" name="club_rotary_id" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                          <label class="login-label" for="gender">Gender</label><span>*</span>
+                          <select id="gender" name="gender" class="form-control" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Blood Group</label>
+                            <input type="text" name="blood_group" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 col-6">
+                        <div id="username" class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Username</label>
+                            <input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+
+                        <div id="password" class="form-group">
+                            <label class="login-label" for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputPassword1">Address</label>
+                            <textarea type="text" name="address" class="form-control form-control-sm" id="exampleInputPassword1" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Emergency Contact Name (Relation)</label>
+                            <input type="text" name="emergency_contact_name" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Emergency Contact Number</label>
+                            <input pattern="[1-9]{1}[0-9]{9}" type="tel" name="emergency_contact_no" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label" for="exampleInputEmail1">Jacket Size</label>
+                            <input type="text" name="jacket_size" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+                        <div id="participate" class="form-group">
+                            <label class="login-label" for="participate_in_ryla">Do you want to participate in Mx RYLA</label><span>*</span>
+                            <select id="participate_in_ryla" name="participate_in_ryla" class="form-control" required>
+                                
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                              
+                            </select>
+                          </div>
+
+                          <div id="theme_interest" class="form-group">
+                            <label class="login-label" for="theme_interest">Which theme interests you most</label><span>*</span>
+                            <select id="theme_interest" name="theme_interest" class="form-control" >
+                                <option value="OTT">OTT</option>
+                              <option value="ABC">ABC (anything but clothes)</option>
+                              <option value="Fabrics_of_india">Fabrics of India</option>
+                              <option value="Glitz_and_glam">Glitz and Glam </option>
+                              
+                            </select>
+                          </div>
+                      </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary btn-block mt-2 btn-login" >Sign in</button>
+
+                    <div class="sign-up mt-2">
+                        Already have an account? <a href="{% url 'App_Login:login_attempt'%}">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}
+    {% block js %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+
+    <script type="text/javascript">
+      $('#participate_in_ryla').on('change',function(){
+     var selection = $(this).val();
+    switch(selection){
+    case "Yes":
+    $("#theme_interest").show()
+   break;
+    default:
+    $("#theme_interest").hide()
+    }
+});
+
+
+$('#rotaractor_or_interactor_or_rotarian').on('change',function(){
+     var selection = $(this).val();
+    switch(selection){
+    case "Rotarian":
+    $("#username").hide();
+    $("#password").hide();
+    $("#club_rotary_id").hide();
+    $("#participate").hide();
+    $("#theme_interest").hide();
+   break;
+    default:
+    $("#username").show();
+    $("#password").show();
+    $("#club_rotary_id").show();
+    $("#participate").show();
+    $("#theme_interest").show();
+    }
+});
+    </script>
+    {% endblock %}
